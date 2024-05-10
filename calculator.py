@@ -8,89 +8,122 @@
 
 
 def addition():
-    
-    addend1 = float (input("1st Addend: "))
-    addend2 = float (input ("2nd Addend: "))
-    sum = addend1 + addend2
+    try: 
+        # Ask user for two numbers
+        addend1 = float (input("Enter an Addend: "))
+        addend2 = float (input ("Enter an Addend: "))
+        sum = addend1 + addend2
+        # Display the result
+        print ("\nResult:", sum)
 
-    print ("\nResult:", sum)
+    except ValueError:
+        print ("Error. Invalid Input.")
+    
 
 def subtraction ():
 
-    minuend = float (input ("Minuend: "))
-    subtrahend = float (input ("Subtrahend: "))
+    try: 
+        # Ask user for two numbers
+        minuend = float (input ("Enter a Minuend: "))
+        subtrahend = float (input ("Enter a Subtrahend: "))
+        difference = minuend - subtrahend
+        # Display the result
+        print ("\nResult:", difference)
 
-    difference = minuend - subtrahend
-
-    print ("\nResult:", difference)
+    except ValueError:
+        print ("Error. Invalid Input.")
+    
 
 def multiplication():
 
-    factor1 = float (input ("1st Factor: "))
-    factor2 = float ( input ("2nd Factor: "))
+    try: 
+        # Ask user for two numbers
+        factor1 = float (input ("Enter a Factor: "))
+        factor2 = float ( input ("Enter a Factor: "))
+        product = factor1 * factor2
+        # Display the result
+        print ("\nResult:", product)
+    
+    except ValueError:
+        print ("Error. Invalid Input.")
 
-    product = factor1 * factor2
-
-    print ("\nResult:", product)
-
+         
 def division():
 
-    dividend  = float (input ("Dividend: "))
-    divisor = float (input ("Divisor: "))
+    try:
+        # Ask user for two numbers
+        dividend  = float (input ("Enter a Dividend: "))
+        divisor = float (input ("Enter a Divisor: "))
+        quotient = dividend / divisor
+        # Display the result
+        print ("\nResult:", quotient)
 
-    quotient = dividend / divisor
-
-    print ("\nResult:", quotient)
+    except ValueError:
+        print ("Error. Invalid Input.")
+    except ZeroDivisionError:
+        print ("Rrror. Division by 0 is not allowed")
 
 def menu():
-        while True:
+    while True:
         # Display Greetings
-            print ("\n\n\033[33m" + "CALC-O-FUN")
-            print ("\033[33m" + "Choose the Mathematical Operation: ")
-            
-            # Display Options
-            print ("\n")
-            print ("\033[37m" + "1. Addition") 
-            print ("\033[37m" + "2. Subtraction") 
-            print ("\033[37m" + "3. Multiplication")
-            print ("\033[37m" + "4. Division")
-            print ("\033[37m" + "5. Quit")
-            print ("\n")
-            user_pick = input ("\033[33m" + "Please Enter a Number: " + "\033[37m")
+        print("\n\n\033[33m" + "CALC-O-FUN")
+        print("\033[33m" + "Choose the Mathematical Operation: ")
 
-            if user_pick == "1":
-                addition()
-            elif user_pick == "2":
-                subtraction()
-            elif user_pick == "3":
-                multiplication()
-            elif user_pick == "4":
-                division()
-            elif user_pick == "5":
-                final = input ("\033[32m" + "Are you sure you want to exit the program? y/n " + "\033[37m")
-                if final.lower() == "y":
-                    print ("\033[34m" + "EXITING PROGRAM. THANK YOU FOR YOUR PARTICIPATION.")
-                else:
-                    continue
+        # Display Options
+        print("\n")
+        print("\033[37m" + "1. Addition")
+        print("\033[37m" + "2. Subtraction")
+        print("\033[37m" + "3. Multiplication")
+        print("\033[37m" + "4. Division")
+        print("\033[37m" + "5. Quit")
+        print("\n")
+        user_pick = input("\033[33m" + "Please Enter a Number: " + "\033[37m")
+
+        if user_pick == "1":
+            addition()
+        elif user_pick == "2":
+            subtraction()
+        elif user_pick == "3":
+            multiplication()
+        elif user_pick == "4":
+            division()
+        elif user_pick == "5":
+            final = input("\033[32m" + "Are you sure you want to exit the program? y/n " + "\033[37m")
+            if final.lower() == "y":
+                print("\033[34m" + "EXITING PROGRAM. THANK YOU FOR YOUR PARTICIPATION.")
+                break
             else:
-                print ("\033[37m" + "Invalid. Please Enter a Number.")
-
-            user_answer = input ("\033[33m" + "\nDo you want to use the program again? y/n " + "\033[37m")
-            if user_answer.lower() == "y":
                 continue
-            else:
-                ("Thank you!")
+        
+        elif int(user_pick) > 5:
+            print("Please choose only from 1-5.")
+        else:
+            print("\033[37m" + "Invalid. Please Choose A Number from 1-5")
+
+        while True:
+            # The application will ask if the user wants to try again or not.
+            user_answer = input("\033[33m" + "\nDo you want to use the program again? y/n " + "\033[37m")
+
+            # If yes, repeat Step 1
+            if user_answer.lower() == "y":
                 break
 
+            # If no, Display "Thank You!" and the program will exit
+            elif user_answer.lower() == "n":
+                print("Thank You For Using the Calculator")
+            else:
+                print("\033[31m" + "Please enter either 'y' or 'n'." + "\033[37m")
+                
+
 menu()
-# Ask user for two numbers
 
 
-# Display the result
 
-# The application will ask if the user wants to try again or not.
 
-# If yes, repeat Step 1
 
-# If no, Display "Thank You!" and the program will exit
+
+
+
+
+
 
